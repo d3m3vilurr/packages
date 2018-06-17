@@ -7,7 +7,7 @@ sha256sums=('d18ca0261d379d005bc4ff42342a691eb33374b20428f57d8dcaf68b80f68c25')
 
 build() {
   cd tremor-293fd1c
-  ./configure --host=arm-vita-eabi --prefix=$prefix --disable-shared --enable-static
+  ./autogen.sh --host=arm-vita-eabi --prefix=$prefix --disable-shared --enable-static
   sed -ie 's/-D_REENTRANT/-D_REENTRANT -Wa,-mimplicit-it=thumb/g' Makefile
   make
 }
